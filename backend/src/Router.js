@@ -1,10 +1,13 @@
 const { Router } = require('express');
 const routes = Router();
+const UserController = require('./controllers/UserController');
+
+
+// MIDDLEWARES
+const UserValidator = require('./middlewares/UserValidator');
 
 
 
-routes.get('/', (req, res) => {
-    return res.send('Worked!');
-});
+routes.post('/api/user', UserValidator.validate, UserController.store);
 
 module.exports = routes;
