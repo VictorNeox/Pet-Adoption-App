@@ -19,7 +19,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -35,7 +35,7 @@ describe('User Endpoint Test', () => {
             //name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -51,7 +51,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             //login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -67,7 +67,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             //password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -83,7 +83,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            //email: 'victorrodrigues753@gmail.com',
+            //email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -99,7 +99,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             //city: 'Americana',
             uf: 'SP'
         });
@@ -115,7 +115,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             // uf: 'SP'
         });
@@ -131,7 +131,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor123',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
@@ -147,7 +147,7 @@ describe('User Endpoint Test', () => {
             name: 'Victor Oliveira',
             login: 'victor1234',
             password: '123456789',
-            email: 'victorrodrigues753@gmail.com',
+            email: 'test.email@gmail.com',
             city: 'Americana',
             uf: 'SP'
         });
