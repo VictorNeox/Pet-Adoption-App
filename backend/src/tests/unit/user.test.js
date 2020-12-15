@@ -5,6 +5,8 @@ const request = supertest(app);
 
 
 describe('User Endpoint Test', () => {
+
+    let token;
     
     it('Just Dropping Users', async (done) => {
         const res = await request.delete('/api/user/all');
@@ -172,6 +174,8 @@ describe('User Endpoint Test', () => {
 
             expect(res.status).toBe(200);
             expect(res.body.message).toBe('User authenticated');
+
+            token = res.body.token;
             done();
         });
 
@@ -194,6 +198,46 @@ describe('User Endpoint Test', () => {
 
             expect(res.status).toBe(400);
             expect(res.body.message).toBe('Login or password is invalid');
+            done();
+        });
+    });
+
+    describe('Authorization Test', () => {
+        it('Expect to loggin successfully', async (done) => {
+            const res = await request.post('/api/user/auth').set(
+                'Authorization', `Bearer ${token}`
+            );
+
+            expect(res.status).toBe(200);
+            expect(res.body.message).toBe('User Logged In');
+            done();
+        });
+
+        it('Expect No Token Provided', async (done) => {
+            const res = await request.post('/api/user/auth');
+
+            expect(res.status).toBe(401);
+            expect(res.body.message).toBe('No token provided');
+            done();
+        });
+
+        it('Expect Token malformatted', async (done) => {
+            const res = await request.post('/api/user/auth').set(
+                'Authorization', `Test ${token}`
+            );
+
+            expect(res.status).toBe(401);
+            expect(res.body.message).toBe('Token malformatted');
+            done();
+        });
+
+        it('Expect Token Error', async (done) => {
+            const res = await request.post('/api/user/auth').set(
+                'Authorization', `${token}`
+            );
+
+            expect(res.status).toBe(401);
+            expect(res.body.message).toBe('Token Error');
             done();
         });
     });

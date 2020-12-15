@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 function generateToken(userId) {
-    const token = jwt.sign({ id: userId }, secret.auth);
+    const token = jwt.sign({ id: userId }, secret.auth, { expiresIn: '365d'});
 
     return token;
 }
@@ -56,5 +56,23 @@ module.exports = {
             token: generateToken(user.id),
             message: 'User authenticated'
         });
+    },
+
+    async session(req, res) {
+        const { id } = req.body;
+        
+        const user = await connection('users')
+            .select('*')
+            .where('id', id)
+            .first();
+        
+        if(!user) {
+            return res.send(400).json({ message: 'No user registered with this ID' });
+        }
+
+        user.password = undefined;
+        user.login = undefined;
+
+        return res.status(200).json({ user, message: 'User Logged In' });
     }
 }
