@@ -2,7 +2,11 @@ const app = require('../../index');
 
 const supertest = require('supertest');
 const request = supertest(app);
-
+/* 
+    ! Didn't figured out why JEST TEST is ending with this message: "Jest did not exit one second after the test run has completed.
+    ! This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue."
+    TODO: I'll fix Later
+*/
 
 describe('User Endpoint Test', () => {
 
