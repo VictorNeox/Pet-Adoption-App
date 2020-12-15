@@ -9,5 +9,6 @@ const UserValidator = require('./middlewares/UserValidator');
 
 
 routes.post('/api/user', UserValidator.validate, UserController.store);
+routes.delete('/api/user/all', UserController.deleteAll);
 
 module.exports = routes;

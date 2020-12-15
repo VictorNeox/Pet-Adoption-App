@@ -4,20 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/tests/unit --exit",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "nodemon": "^2.0.6"
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "supertest": "^6.0.1"
   },
   "dependencies": {
-    "chai-http": "^4.3.0",
-    "chai-subset": "^1.6.0",
     "express": "^4.17.1",
     "joi": "^17.3.0",
     "knex": "^0.21.12",
