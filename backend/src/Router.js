@@ -5,7 +5,7 @@ const UserController = require('./controllers/UserController');
 
 // MIDDLEWARES
 const UserValidator = require('./middlewares/UserValidator');
-const Authorization = require('./middlewares/auth');
+const Authorization = require('./middlewares/Auth');
 
 
 
