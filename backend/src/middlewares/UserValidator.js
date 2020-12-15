@@ -11,28 +11,32 @@ const userSchema = Joi.object({
 });
 
 module.exports = {
-    async validate(req, res, next) {
-        const data = req.body;
+    async registerValidate(req, res, next) {
+        const user = req.body;
         try {
-            const validation = await userSchema.validateAsync(data);
+            const validation = await userSchema.validateAsync(user);
         } catch (err) {
             if(err) {
                 return res.status(400).send({ message: `Error: ${err.message}` });
             }
         }
 
+        const searchUser = await connection('users')
+            .select('*')
+            .orWhere('email', user.email)
+            .orWhere('login', user.login)
+            .first();
 
-        
-        const checkLogin = await connection('users').select('*').where({ login: data.login }).first();
-        if (checkLogin) {
-            return res.status(400).send({ message: 'This login is already been used.' });
+        if(searchUser) {
+            if(searchUser.email === user.email) {
+                return res.status(400).send({ message: 'This e-mail is already been used.' });
+            }
+            
+            if (searchUser.login === user.login) {
+                return res.status(400).send({ message: 'This login is already been used.' });
+            }
         }
 
-        const checkEmail = await connection('users').select('*').where({ email: data.email }).first();
-        if (checkEmail) {
-            return res.status(400).send({ message: 'This e-mail is already been used.' });
-        }
-        
         next();
     }
 }
