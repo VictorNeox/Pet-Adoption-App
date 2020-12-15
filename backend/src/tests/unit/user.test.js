@@ -213,7 +213,7 @@ describe('User Endpoint Test', () => {
             );
 
             expect(res.status).toBe(200);
-            expect(res.body.message).toBe('User Logged In');
+            expect(res.body.message).toBe('User Founded');
             done();
         });
 

@@ -73,6 +73,6 @@ module.exports = {
         user.password = undefined;
         user.login = undefined;
 
-        return res.status(200).json({ user, message: 'User Logged In' });
+        return res.status(200).json({ user, message: 'User Founded' });
     }
 }
