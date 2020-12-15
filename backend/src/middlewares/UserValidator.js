@@ -7,7 +7,7 @@ const userSchema = Joi.object({
     password: Joi.string().required(),
     email: Joi.string().required(),
     city: Joi.string().required(),
-    uf: Joi.string().min(2).max(2)
+    uf: Joi.string().min(2).max(2).required()
 });
 
 module.exports = {
