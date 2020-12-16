@@ -26,7 +26,7 @@ module.exports = {
             if(err)
                 return res.send(401).json({ message: 'Invalid Token' });
             
-            req.body.id = decoded.id
+            req.id = decoded.id
             next();
         });
     }

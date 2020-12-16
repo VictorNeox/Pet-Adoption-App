@@ -29,10 +29,6 @@ module.exports = {
 
         const result = await connection('users').delete('*');
 
-        if (!result) {
-            return res.status(400).json({ message: 'An error ocurred when deleting users from DB' });
-        }
-
         return res.status(200).json({ message: 'All users deleted from database' });
     },
 
@@ -59,7 +55,7 @@ module.exports = {
     },
 
     async session(req, res) {
-        const { id } = req.body;
+        const id = req.id;
         
         const user = await connection('users')
             .select('*')
