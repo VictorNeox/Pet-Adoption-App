@@ -26,8 +26,8 @@ module.exports = {
     },
 
     async deleteAll(req, res) {
-
-        const result = await connection('users').delete('*');
+        await connection('pets').delete('*');
+        await connection('users').delete('*');
 
         return res.status(200).json({ message: 'All users deleted from database' });
     },

@@ -2,9 +2,9 @@ const connection = require('../database/connection');
 
 module.exports = {
     async store(req, res) {
-        const pet = req.body;
+        const data = req.body;
 
-        pet.user_id = req.id;
+        data.user_id = req.id;
 
         const [ id ] = await connection('pets').insert(data);
 
