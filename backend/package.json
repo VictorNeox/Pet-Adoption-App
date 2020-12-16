@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose --forceExit --maxWorkers=1",
     "test:watch": "jest --watch",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
